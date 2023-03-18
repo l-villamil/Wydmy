@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'wydmy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'wydmi_db',
+        'USER': 'wydmi_user',
+        'PASSWORD': 'isis2503',
+        'HOST':'10.128.0.2',
+        'PORT': '',
     }
 }
 
