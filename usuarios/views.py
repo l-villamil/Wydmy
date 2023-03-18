@@ -4,9 +4,11 @@ from django.http import HttpResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
 
+from django.shortcuts import render
+
+
 
 @csrf_exempt
-
 def usuarios_view(request):
     if request.method=='GET':
         id=request.GET.get("id",None)
@@ -23,6 +25,8 @@ def usuarios_view(request):
         usuario=serializers.serialize('json',[usuario_dto,])
         return HttpResponse(usuario,'application/json')
 
+    return render(request, 'avanzo/base.html', context) # tiene que ser un render! por algo de segurIdad de Django -> csrf_token
+    # se pueden mandar variables al html! -> context
 
 @csrf_exempt
 def usuario_view(request,pk):
