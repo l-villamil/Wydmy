@@ -9,16 +9,19 @@ from django.views.decorators.csrf import csrf_exempt
 
 def usuarios_view(request):
     if request.method=='GET':
-        usuarios=ul.get_usuarios()
-        usuarios_dto=serializers.serialize('json',usuarios)
-        return HttpResponse(usuarios_dto,'application/json')
-    
-    elif request.method == 'POST':
-        cliente_dto = json.loads(request.body)
-        cliente = ul.create_cliente(cliente_dto)
-        return HttpResponse(cliente, 'application/json')
-
-
+        id=request.GET.get("id",None)
+        if id:
+            usuario_dto=ul.get_usuario(id)
+            usuario=serializers.serialize('json',[usuario_dto],)
+            return HttpResponse(usuario,'application/json')
+        else:
+            usuarios_dto=ul.get_usuarios( )
+            usuarios=serializers.serialize('json',usuarios_dto)
+            return HttpResponse(usuarios,'application/json')
+    if request.method=='POST':
+        usuario_dto=ul.create_usuario(json.loads(request.body))
+        usuario=serializers.serialize('json',[usuario_dto,])
+        return HttpResponse(usuario,'application/json')
 
 
 @csrf_exempt

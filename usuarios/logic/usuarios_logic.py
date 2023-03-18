@@ -20,7 +20,7 @@ def update_usuario(sol_pk, new_sol):
 
 
 
-def usuario(sol):
+def create_usuario(sol):
     cliente = Usuario(
         cedula = sol["cedula"],
         nombre = sol["nombre"],
