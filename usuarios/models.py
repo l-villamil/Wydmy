@@ -8,5 +8,5 @@ class Usuario(models.Model):
     direccion = models.CharField(max_length = 50, null = False, blank = False)
 
 
-    def __str__(self) -> str:
+    def __str__(self):
         return '%s %s' % (self.nombre,self.cedula)
