@@ -18,3 +18,17 @@ def update_usuario(sol_pk, new_sol):
     usuario.save()
     return usuario
 
+
+
+def usuario(sol):
+    cliente = Usuario(
+        cedula = sol["cedula"],
+        nombre = sol["nombre"],
+        telefono = sol["telefono"],
+        correo = sol["correo"],
+        direccion = sol["direccion"]
+    )
+    cliente.save()
+    return cliente
+
+
