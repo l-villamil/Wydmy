@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = "/login/auth0" 
 LOGIN_REDIRECT_URL = "/" 
-LOGOUT_REDIRECT_URL = "https://isis2503-widmy-auth.us.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080" 
+LOGOUT_REDIRECT_URL = "https://isis2503-widmy-auth.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F34.123.207.85:8080" 
 
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
 SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-widmy-auth.us.auth0.com' 
