@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,6 +28,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_URL = "/login/auth0" 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "https://isis2503-widmy-auth.us.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080" 
+
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-widmy-auth.us.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = 'hrbDmjgMZpplF5Ksw1raHFdkz8YFLsAQ' 
+SOCIAL_AUTH_AUTH0_SECRET = 'kciMAH4NOZxMeO7PIjGs5mwOtJjkCEIPU8WT0QTC107Ni24sZJFt4W35NSmWuKEr' 
+
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile', 'email', 'role',]
+AUTHENTICATION_BACKENDS = { 'usuarios.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }
 
 # Application definition
 
@@ -38,7 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'plantillas',
-    'usuarios'
+    'usuarios',
+    'social_django',
 ]
 
 MIDDLEWARE = [
