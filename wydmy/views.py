@@ -1,7 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
-def home(request):
-    return HttpResponse("Hello World Django views")
-
-def healthCheck(reuqest):
-    return HttpResponse('ok')
+def index(request):
+    return render(request, 'index.html')
