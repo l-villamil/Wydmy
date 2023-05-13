@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'wydmy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'wydmi_db',
-        'USER': 'wydmi_user',
+        'NAME': 'widmy_db',
+        'USER': 'monitoring_user',
         'PASSWORD': 'isis2503',
-        'HOST':'10.128.0.2',
+        'HOST':'10.128.0.6',
         'PORT': '',
     }
 }
